@@ -15,12 +15,12 @@ export default function SettingsScreen({ navigation }) {
         </Paragraph>
         <Button
           mode="outlined"
-          onPress={() =>
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'LoginScreen' }],
-            })
-          }
+          // onPress={() =>
+          //   navigation.reset({
+          //     index: 0,
+          //     routes: [{ name: 'LoginScreen' }],
+          //   })
+          // }
         >
           Logout
         </Button>

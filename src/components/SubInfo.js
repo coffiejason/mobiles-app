@@ -2,7 +2,7 @@ import React from "react";
 import { View, Image, Text } from "react-native";
 import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../core/themeVariables";
 
-export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
+export const Title = ({ title, subTitle, titleSize, subTitleSize }) => {
   return (
     <View>
       <Text
@@ -27,40 +27,8 @@ export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
   );
 };
 
-export const EthPrice = ({ price }) => {
-  return (
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      {/* <Image
-        source={assets.eth}
-        resizeMode="contain"
-        style={{ width: 20, height: 20, marginRight: 2 }}
-      /> */}
-      <Text
-        style={{
-          fontFamily: FONTS.medium,
-          fontSize: SIZES.font,
-          color: COLORS.primary,
-        }}
-      >
-        {price}
-      </Text>
-    </View>
-  );
-};
 
-const ImageCmp = ({ imgUrl, index }) => {
-  return (
-    <Image
-      source={imgUrl}
-      resizeMode="contain"
-      style={{
-        width: 48,
-        height: 48,
-        marginLeft: index === 0 ? 0 : -SIZES.font,
-      }}
-    />
-  );
-};
+
 
 export const People = () => {
   return (

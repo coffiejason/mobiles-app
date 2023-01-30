@@ -21,7 +21,7 @@ export default function ProfileScreen({ navigation }) {
       </Paragraph>
       <Button
         mode="outlined"
-        onPress={() => { navigation.navigate('LoginScreen') }}
+        //onPress={() => { navigation.navigate('LoginScreen') }}
       >
         Logout
       </Button>

@@ -16,12 +16,19 @@ export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
 
+  const loginFxn = (email,password) => {
+    //sends credentials to servers aand gets auth token in response
+    //save auth token for future requests
+  }
+
   const onLoginPressed = () => {
     const emailError = emailValidator(email.value)
     const passwordError = passwordValidator(password.value)
     if (emailError || passwordError) {
       setEmail({ ...email, error: emailError })
       setPassword({ ...password, error: passwordError })
+
+      loginFxn(email.value,password.value)
       return
     }
     navigation.reset({

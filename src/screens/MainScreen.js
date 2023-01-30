@@ -4,9 +4,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // Screens
-import HomeScreen from './src/screens/Dashboard';
-import SettingsScreen from './src/screens/SettingsScreen';
-import ProfilesScreen from './src/screens/ProfileScreen';
+import HomeScreen from './Dashboard';
+import SettingsScreen from './SettingsScreen';
+import ProfilesScreen from './ProfileScreen';
+import DetailsScreen from './DetailsScreen';
+import LoginScreen from './LoginScreen';
+import { createStackNavigator } from '@react-navigation/stack';
+import ProfileScreen from './ProfileScreen';
 
 //Screen names
 const homeName = "Home";
@@ -15,11 +19,50 @@ const settingsName = "Settings";
 
 const Tab = createBottomTabNavigator();
 
+const Stack = createStackNavigator();
+
+const HomeNavigator = () => {
+  return (
+    <Stack.Navigator
+    screenOptions={{
+      headerShown: false
+    }}
+    >
+      <Stack.Screen name="Home Screen" component={HomeScreen} />
+      <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+    </Stack.Navigator>
+  )
+}
+
+const ProfileNavigator = () => {
+  return (
+    <Stack.Navigator
+    screenOptions={{
+      headerShown: false
+    }}
+    >
+      <Stack.Screen name="Profle Screen" component={ProfileScreen} />
+    </Stack.Navigator>
+  )
+}
+
+const SettingsNavigator = () => {
+  return (
+    <Stack.Navigator
+    screenOptions={{
+      headerShown: false
+    }}
+    >
+      <Stack.Screen name="Settings Screen" component={SettingsScreen} />
+    </Stack.Navigator>
+  )
+}
+
 function MainScreen() {
   return (
     <NavigationContainer independent={true}>
       <Tab.Navigator
-        initialRouteName={profileName}
+        initialRouteName={homeName}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
@@ -51,11 +94,10 @@ function MainScreen() {
             null
           ]
         })}
-        >
-
-        <Tab.Screen name={homeName} component={HomeScreen} />
-        <Tab.Screen name={profileName} component={ProfilesScreen} />
-        <Tab.Screen name={settingsName} component={SettingsScreen} />
+      >
+        <Tab.Screen name={homeName} component={HomeNavigator} />
+        <Tab.Screen name={profileName} component={ProfileNavigator} />
+        <Tab.Screen name={settingsName} component={SettingsNavigator} />
 
       </Tab.Navigator>
     </NavigationContainer>
